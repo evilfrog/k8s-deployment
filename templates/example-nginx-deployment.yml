@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app
+        tier: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: {IMAGE_NGINX}
+        env:
+        - name: FOO
+          value: "{FOO}"
+        ports:
+        - containerPort: 80
